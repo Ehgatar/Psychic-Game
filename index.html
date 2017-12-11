@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+  <title>The Psychi Game</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</script>
+</head>
+
+<body>
+
+<div = id= "game">
+    <h1>The Psychi Game</h1>
+    <p1>Guess what letter I'm thinking of</p1>
+    <p>
+        <ul>Wins:</ul>
+        <ul>Losses:</ul>
+        <ul>Guesses Left:</ul>
+        <ul>Your Guesses So Far:</ul>   
+    </p>
+
+</div>
+
+<script type="text/javascript"> 
+    
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 9;
+    var guessesSoFar = [];
+    var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    document.onkeyup = function(event) {
+        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
+        guessesSoFar.push(userGuess);
+        if (userGuess === computerGuess) {
+            wins++;
+            alert('You\'ve guesesed corrrectly, You Won!');
+            guessesLeft = 9;
+            guessesSoFar.length = 0;
+    }
+        else if (guessesLeft === 0) {
+            losses++;
+            alert('You didn\'t guess the correct letter. You lost, but try again');
+            guessesLeft = 9;
+            guessesSoFar.length = 0; 
+    }    
+         else if (userGuess !== computerGuess){
+            guessesLeft--;
+    } 
+
+        var html = "<h1>The Psychic Game</h1>" + 
+        "<p>Guess what letter I'm thinking of!</p>" +
+        "<p>Total Wins: " + 
+        wins + 
+        "</p>" +
+        "<p>Total Losses: " + 
+        losses + 
+        "</p>" +
+        "<p>Guesses Left: " + 
+        guessesLeft + 
+        "</p>" +
+        "<p>Your Guesses so far: " +
+        guessesSoFar +
+        "</p>"
+        ;
+        
+        document.querySelector('#game').innerHTML = html; 
+
+}
+    
+
+</script>
+</body>
+</html>
