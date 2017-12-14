@@ -8,17 +8,18 @@
   <title>The Psychi Game</title>
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/javascript/games.js">
 </script>
 </head>
 
 <body>
 
 <div = id= "game">
-    <h1>The Psychi Game</h1>
-    <p1>Guess what letter I'm thinking of</p1>
+    <h1>The Psychic Game</h1>
+    <p1>Guess what letter I'm thinking of!</p1>
     <p>
-        <ul>Wins:</ul>
-        <ul>Losses:</ul>
+        <ul>Total Wins:</ul>
+        <ul>Total Losses:</ul>
         <ul>Guesses Left:</ul>
         <ul>Your Guesses So Far:</ul>   
     </p>
@@ -54,19 +55,19 @@
     } 
 
         var html = "<h1>The Psychic Game</h1>" + 
-        "<p>Guess what letter I'm thinking of!</p>" +
-        "<p>Total Wins: " + 
+        "<p1>Guess what letter I'm thinking of!</p1>" +
+        "<ul>Total Wins: " + 
         wins + 
-        "</p>" +
-        "<p>Total Losses: " + 
+        "</ul>" +
+        "<ul>Total Losses: " + 
         losses + 
-        "</p>" +
-        "<p>Guesses Left: " + 
+        "</ul>" +
+        "<ul>Guesses Left: " + 
         guessesLeft + 
-        "</p>" +
-        "<p>Your Guesses so far: " +
+        "</ul>" +
+        "<ul>Your Guesses so far: " +
         guessesSoFar +
-        "</p>"
+        "</ul>"
         ;
         
         document.querySelector('#game').innerHTML = html; 
